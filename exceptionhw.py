@@ -1,4 +1,4 @@
-class WrongLenght(Exception):
+class WrongLength(Exception):
    pass
 
 user_input = input('Польская нотация. Введите операцию и два числа через пробел: ').split(' ')
@@ -9,12 +9,12 @@ try:
     if user_input[0] == '/' and num_2 == 0:
         raise ZeroDivisionError
     if len(user_input) != 3:
-        raise WrongLenght
+        raise WrongLength
 except AssertionError :
     print('Не выбрано арифметическое действие!')
 except ValueError:
     print('Вы ввели не число!')
-except WrongLenght:
+except WrongLength:
     print('Неверное количество чисел')
 except ZeroDivisionError:
     print('Нельзя делить на 0')
