@@ -21,9 +21,17 @@ def get_shop_list_by_dishes(dishes, person_count):
     ingridient_dict = {}
     for dish in dishes:
         for ingridient in cookbook[dish]:
-            ingridient_dict[ingridient['ingridient_name']]={'measure': ingridient['measure'],'quantity':ingridient['quantity']*person_count}
-
+            if ingridient['ingridient_name'] in ingridient_dict.keys():
+                upd_dict = {ingridient['ingridient_name']:{'measure': ingridient['measure'],
+                            'quantity': ingridient_dict[ingridient['ingridient_name']]['quantity'] + ingridient['quantity'] * person_count}}
+                ingridient_dict.update(upd_dict)
+            else:
+                upd_dict = {ingridient['ingridient_name']:{'measure': ingridient['measure'],'quantity': ingridient['quantity'] * person_count}}
+                ingridient_dict.update(upd_dict)
     return ingridient_dict
 
-print(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2))
-pprint(get_shop_list_by_dishes(['Фахитос', 'Омлет'], 3))
+#print(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2))
+#pprint(get_shop_list_by_dishes(['Фахитос', 'Омлет'], 3))
+pprint(get_shop_list_by_dishes(['Омлет', 'Омлет'], 3))
+pprint(get_shop_list_by_dishes(['Омлет', 'Фахитос', 'Омлет', 'Фахитос'], 3))
+pprint(get_shop_list_by_dishes(['Омлет', 'Омлет', 'Омлет'], 3))
