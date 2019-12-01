@@ -6,7 +6,7 @@ API_KEY = 'trnsl.1.1.20190712T081241Z.0309348472c8719d.0efdbc7ba1c507292080e3fbf
 URL = 'https://translate.yandex.net/api/v1.5/tr.json/translate'
 
 OAUTH_TOKEN = 'AgAAAAAFRf7FAAYA5ado3MqC902Ak66ethrbkU0'
-
+#для получения токена https://oauth.yandex.ru/authorize?response_type=token&client_id=c5de797f68854d968122efa24cd470d5
 
 def save_file_yadisk(filepath, yandex_filepath='app:/new.txt', mode='upload'):
     # mode при значении 'download' скачивает файл с яндекс диска, тогда filepath следует использовтаь как путь для сохранения файла на компьютер
