@@ -3,6 +3,7 @@ from pprint import pprint
 
 ACCESS_TOKEN = '4a72e919308ec960aed7666c49d11e56efddb316b8b40abc3ce4657449e145dd766512612f4eb832557f4'
 URL = 'https://api.vk.com/method/'
+V_API = '5.103'
 #oauth_url = 'https://oauth.vk.com/authorize?client_id=7230720&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.103'
 
 class VkUser():
@@ -13,7 +14,7 @@ class VkUser():
             'user_ids': self.id,
             'fields' : 'bdate,city,domain',
             'access_token': ACCESS_TOKEN,
-            'v': '5.103'
+            'v': V_API
         }
         response = requests.get(URL+method_name, params=params)
         try:
@@ -56,7 +57,7 @@ class VkUser():
             'user_id' : self.id,
             'order' : 'name',
             'access_token': ACCESS_TOKEN,
-            'v': '5.103'
+            'v': V_API
         }
         response = requests.get(URL+method_name, params=params)
         friends_list = response.json()['response']['items']
@@ -73,7 +74,7 @@ class VkUser():
             'order' : 'name',
             'fields' : 'nickname',
             'access_token': ACCESS_TOKEN,
-            'v': '5.103'
+            'v': V_API
         }
         all_friend = {}
         response = requests.get(URL+method_name, params=params)
