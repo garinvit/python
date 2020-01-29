@@ -69,7 +69,7 @@ def test_2(*args, **kwargs):
 def main():
     test_f(1, 'a', 3, test='word', abc=123)
     test_2(1, 'a', 3, test='word', abc=123)
-    adv_print(1, '+', 2, '=', 3, start='Пример:', end='Конец.')
+    adv_print(1, '+', 2, '=', 3, start='Пример:\n', end='\nКонец.')
 
 
 if __name__ == '__main__':
